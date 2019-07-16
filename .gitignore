@@ -54,3 +54,6 @@ buildNumber.properties
 
 # bin folder
 bin/
+
+# build folder
+/build/
