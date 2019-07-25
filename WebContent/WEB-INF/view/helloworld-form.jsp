@@ -8,13 +8,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Hellow World - Input Form</title>
+<title>Hello World - Input Form</title>
 </head>
 <body>
 
-	<form action="processForm" method="POST">
-		<input type="text" name="studentName" placeholder="What's your name?" />
-		<input type="submit" value="Submit Query" />
+	<form action="processFormVersionTwo" method="POST">
+		<input type="text" name="studentName" placeholder="What's your name?"
+			required /> <input type="submit" value="Submit Query" />
 	</form>
 
 </body>
