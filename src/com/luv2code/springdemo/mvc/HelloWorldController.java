@@ -14,5 +14,8 @@ public class HelloWorldController {
 	}
 
 	// need a controller method to process the HTML form
-
+	@RequestMapping(path = "/processForm", method = RequestMethod.POST)
+	public String processForm() {
+		return "helloworld";
+	}
 }
