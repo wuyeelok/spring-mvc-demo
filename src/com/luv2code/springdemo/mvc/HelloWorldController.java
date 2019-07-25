@@ -24,13 +24,13 @@ public class HelloWorldController {
 	// new a controller method to read form data and
 	// add data to the model
 	@RequestMapping(path = "/processFormVersionTwo", method = RequestMethod.POST)
-	public String letsShoutDude(@RequestParam(value = "studentName") String theName, Model model) {
+	public String letsShoutDude(@RequestParam String studentName, Model model) {
 
 		// convert the data to all caps
-		theName = theName.toUpperCase();
+		studentName = studentName.toUpperCase();
 
 		// create the message
-		String result = "Yo! " + theName;
+		String result = "Yo! " + studentName;
 
 		// add message to the model
 		model.addAttribute("message", result);
