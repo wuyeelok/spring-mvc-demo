@@ -25,6 +25,10 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- Step 6: Add static (css, js, image...) resource file -->
+	<mvc:resources mapping="/resources/**"
+		location="/resources/"></mvc:resources>
+
 </beans>
 
 
