@@ -21,6 +21,6 @@
 
 	<br>
 
-	<p>Country: ${student.country}</p>
+	<p>Country: ${countryOptions[student.country]}</p>
 </body>
 </html>
