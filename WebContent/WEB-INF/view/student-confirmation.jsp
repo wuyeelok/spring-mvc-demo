@@ -19,5 +19,8 @@
 	<p>The student is confirmed: ${student.firstName}
 		${student.lastName}</p>
 
+	<br>
+
+	<p>Country: ${student.country}</p>
 </body>
 </html>

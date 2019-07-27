@@ -30,6 +30,15 @@
 		<br>
 		<br>
 
+		<label for="country">Country:</label>
+		<form:select path="country" required="required">
+			<form:option value="" label="--- Select ---" />
+			<form:options items="${countryOptions}" />
+		</form:select>
+
+		<br>
+		<br>
+
 		<input type="submit" value="Submit" />
 
 	</form:form>

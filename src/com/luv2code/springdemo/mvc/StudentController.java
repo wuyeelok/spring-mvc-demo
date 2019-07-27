@@ -1,5 +1,8 @@
 package com.luv2code.springdemo.mvc;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +21,14 @@ public class StudentController {
 
 		// add student object to the model
 		theModel.addAttribute("student", theStudent);
+
+		Map<String, String> countryMap = new LinkedHashMap<>();
+		countryMap.put("Brazil", "BRAZIL");
+		countryMap.put("France", "FRANCE");
+		countryMap.put("Germany", "GERMANY");
+		countryMap.put("India", "INDIA");
+
+		theModel.addAttribute("countryOptions", countryMap);
 
 		return "student-form";
 	}
