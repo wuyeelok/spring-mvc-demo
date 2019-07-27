@@ -18,23 +18,15 @@ public class StudentController {
 	private final Map<String, String> countryOptions;
 	private final Map<String, String> favourLangOptions;
 
-	public StudentController(@Value("#{countryOptions}") Map<String, String> countryOptions) {
+	public StudentController(@Value("#{countryOptions}") Map<String, String> countryOptions,
+			@Value("#{favourLangOptions}") Map<String, String> favourLangOptions) {
 
 		// Sort properties map by value & assign to attribute
 		this.countryOptions = countryOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
-		this.favourLangOptions = new LinkedHashMap<>() {
-
-			private static final long serialVersionUID = 1L;
-
-			{
-				put("java", "JAVA");
-				put("c#", "C#");
-				put("php", "PHP");
-				put("ruby", "RUBY");
-			}
-		};
+		this.favourLangOptions = favourLangOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 	}
 
 	@RequestMapping(path = "/showForm", method = RequestMethod.GET)

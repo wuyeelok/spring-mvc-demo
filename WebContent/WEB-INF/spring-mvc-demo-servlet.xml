@@ -35,6 +35,10 @@
 	<!-- Load properties file -->
 	<util:properties id="countryOptions"
 		location="classpath:../countries.properties" />
+	<util:properties id="favourLangOptions"
+		location="classpath:../favouriteLanguage.properties" />
+
+
 
 </beans>
 
