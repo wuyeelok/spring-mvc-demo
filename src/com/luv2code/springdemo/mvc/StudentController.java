@@ -1,16 +1,28 @@
 package com.luv2code.springdemo.mvc;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.luv2code.constant.CountryConstant;
-
 @Controller
 @RequestMapping("/student")
 public class StudentController {
+
+	private final Map<String, String> countryOptions;
+
+	public StudentController(@Value("#{countryOptions}") Map<String, String> countryOptions) {
+
+		// Sort properties map by value & assign to attribute
+		this.countryOptions = countryOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+	}
 
 	@RequestMapping(path = "/showForm", method = RequestMethod.GET)
 	public String showForm(Model theModel) {
@@ -21,7 +33,7 @@ public class StudentController {
 		// add student object to the model
 		theModel.addAttribute("student", theStudent);
 
-		theModel.addAttribute("countryOptions", CountryConstant.COUNTRYMAP);
+		theModel.addAttribute("countryOptions", this.countryOptions);
 
 		return "student-form";
 	}
@@ -33,7 +45,7 @@ public class StudentController {
 		System.out.println(
 				"theStudent: " + student.getFirstName() + " " + student.getLastName() + " " + student.getCountry());
 
-		theModel.addAttribute("countryOptions", CountryConstant.COUNTRYMAP);
+		theModel.addAttribute("countryOptions", this.countryOptions);
 
 		return "student-confirmation";
 	}
