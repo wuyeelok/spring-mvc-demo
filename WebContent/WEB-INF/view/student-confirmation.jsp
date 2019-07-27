@@ -12,27 +12,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/normalize.css">
 
-<title>Student Registration Form</title>
+<title>Student Confirmation</title>
 </head>
 <body>
 
-	<form:form action="processForm" modelAttribute="student">
-
-		<label for="firstName">First name:</label>
-		<form:input path="firstName" required="required" />
-
-		<br>
-		<br>
-
-		<label for="lastName">Last name:</label>
-		<form:input path="lastName" required="required" />
-
-		<br>
-		<br>
-
-		<input type="submit" value="Submit" />
-
-	</form:form>
+	<p>The student is confirmed: ${student.firstName}
+		${student.lastName}</p>
 
 </body>
 </html>

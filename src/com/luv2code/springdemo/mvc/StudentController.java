@@ -2,6 +2,7 @@ package com.luv2code.springdemo.mvc;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,5 +20,14 @@ public class StudentController {
 		theModel.addAttribute("student", theStudent);
 
 		return "student-form";
+	}
+
+	@RequestMapping(path = "/processForm", method = RequestMethod.POST)
+	public String processForm(@ModelAttribute("student") Student theStudent) {
+
+		// log the input data
+		System.out.println("theStudent: " + theStudent.getFirstName() + " " + theStudent.getLastName());
+
+		return "student-confirmation";
 	}
 }
