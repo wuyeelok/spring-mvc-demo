@@ -42,8 +42,8 @@ public class StudentController {
 	public String processForm(@ModelAttribute Student student, Model theModel) {
 
 		// log the input data
-		System.out.println(
-				"theStudent: " + student.getFirstName() + " " + student.getLastName() + " " + student.getCountry());
+		System.out.println("theStudent: " + student.getFirstName() + " " + student.getLastName() + " "
+				+ student.getCountry() + " " + student.getFavouriteLanguage());
 
 		theModel.addAttribute("countryOptions", this.countryOptions);
 

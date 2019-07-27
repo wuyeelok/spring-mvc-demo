@@ -22,5 +22,9 @@
 	<br>
 
 	<p>Country: ${countryOptions[student.country]}</p>
+	
+	<br>
+	
+	<p>Favourite Language: ${student.favouriteLanguage}</p>
 </body>
 </html>

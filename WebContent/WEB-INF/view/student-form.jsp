@@ -39,6 +39,22 @@
 		<br>
 		<br>
 
+		<p>Favorite Language:</p>
+		<label>Java <form:radiobutton path="favouriteLanguage"
+				value="Java" required="required" /></label>
+
+		<label>C# <form:radiobutton path="favouriteLanguage"
+				value="C#" required="required" /></label>
+
+		<label>PHP <form:radiobutton path="favouriteLanguage"
+				value="PHP" required="required" /></label>
+
+		<label>Ruby <form:radiobutton path="favouriteLanguage"
+				value="Ruby" required="required" /></label>
+
+		<br>
+		<br>
+
 		<input type="submit" value="Submit" />
 
 	</form:form>
