@@ -2,9 +2,12 @@ package com.luv2code.springdemo.mvc;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+
+	// add an initbinder ... to convert trim strings
+	// remove leading annotation
+	// resolve issue for our validation
+
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+	}
 
 	@RequestMapping(path = "/showForm", method = RequestMethod.GET)
 	public String showForm(Model theModel) {
