@@ -38,7 +38,7 @@
 		<br>
 		<br>
 
-		<label for="freePasses">Free passes:</label>
+		<label for="freePasses">Free passes (*):</label>
 		<form:input path="freePasses" />
 		<form:errors path="freePasses" cssClass="error" />
 
