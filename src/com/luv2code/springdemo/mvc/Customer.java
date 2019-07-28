@@ -1,12 +1,12 @@
 package com.luv2code.springdemo.mvc;
 
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 public class Customer {
 
 	private String firstName;
 
-	@Size(min = 1, message = "is required")
+	@NotBlank(message = "is required")
 	private String lastName;
 
 	public String getFirstName() {

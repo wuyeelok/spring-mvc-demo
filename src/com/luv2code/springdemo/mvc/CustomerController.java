@@ -24,6 +24,7 @@ public class CustomerController {
 	@RequestMapping(path = "/processForm", method = RequestMethod.POST)
 	public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult theBindingResult) {
 
+		System.out.println("Last name: |" + theCustomer.getLastName() + "|");
 		if (theBindingResult.hasErrors()) {
 			return "customer-form";
 		} else {
