@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	// add an initbinder ... to convert trim strings
+	// add an initbinder ... to trim user input string
 	// remove leading annotation
 	// resolve issue for our validation
 
