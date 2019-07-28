@@ -1,5 +1,6 @@
 package com.luv2code.springdemo.mvc;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,15 +18,20 @@ public class StudentController {
 
 	private final Map<String, String> countryOptions;
 	private final Map<String, String> favourLangOptions;
+	private final Map<String, String> osOptions;
 
 	public StudentController(@Value("#{countryOptions}") Map<String, String> countryOptions,
-			@Value("#{favourLangOptions}") Map<String, String> favourLangOptions) {
+			@Value("#{favourLangOptions}") Map<String, String> favourLangOptions,
+			@Value("#{osOptions}") Map<String, String> osOptions) {
 
 		// Sort properties map by value & assign to attribute
 		this.countryOptions = countryOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
 		this.favourLangOptions = favourLangOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+		this.osOptions = osOptions.entrySet().stream().sorted(Map.Entry.comparingByValue())
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 	}
 
@@ -42,6 +48,8 @@ public class StudentController {
 
 		theModel.addAttribute("favourLangOptions", this.favourLangOptions);
 
+		theModel.addAttribute("osOptions", this.osOptions);
+
 		return "student-form";
 	}
 
@@ -50,11 +58,16 @@ public class StudentController {
 
 		// log the input data
 		System.out.println("theStudent: " + student.getFirstName() + " " + student.getLastName() + " "
-				+ student.getCountry() + " " + student.getFavouriteLanguage());
+				+ student.getCountry() + " " + student.getFavouriteLanguage()
+				+ (student.getOperatingSystems() != null && student.getOperatingSystems().length > 0
+						? " " + Arrays.asList(student.getOperatingSystems()).toString()
+						: ""));
 
 		theModel.addAttribute("countryOptions", this.countryOptions);
 
 		theModel.addAttribute("favourLangOptions", this.favourLangOptions);
+
+		theModel.addAttribute("osOptions", this.osOptions);
 
 		return "student-confirmation";
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,5 +28,18 @@
 
 	<p>Favourite Language:
 		${favourLangOptions[student.favouriteLanguage]}</p>
+
+	<c:if test="${not empty student.operatingSystems}">
+		<br>
+
+		<p>Operation Systems:</p>
+		<ul>
+			<c:forEach var="os" items="${student.operatingSystems}">
+
+				<li>${osOptions[os]}</li>
+
+			</c:forEach>
+		</ul>
+	</c:if>
 </body>
 </html>

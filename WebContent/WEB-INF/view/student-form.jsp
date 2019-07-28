@@ -46,6 +46,12 @@
 		<br>
 		<br>
 
+		<p>Operation Systems:</p>
+		<form:checkboxes path="operatingSystems" items="${osOptions}" />
+
+		<br>
+		<br>
+
 		<input type="submit" value="Submit" />
 
 	</form:form>
