@@ -40,6 +40,13 @@
 	<util:properties id="osOptions"
 		location="classpath:../operatingSystem.properties" />
 
+	<!-- Load custom message resources -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+
+		<property name="basenames" value="resources/messages" />
+
+	</bean>
 
 </beans>
 
