@@ -20,5 +20,9 @@
 	<p>The customer has confirmed, first name: ${customer.firstName},
 		last name: ${customer.lastName}</p>
 
+	<br>
+
+	<p>Free passes: ${customer.freePasses}</p>
+
 </body>
 </html>
