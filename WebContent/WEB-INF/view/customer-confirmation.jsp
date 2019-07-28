@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +13,12 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/normalize.css">
 
-<title>Hello World - Input Form</title>
+<title>Customer Confirmation</title>
 </head>
 <body>
 
-	<form action="processFormVersionThree" method="post">
-		<input type="text" name="studentName" placeholder="What's your name?"
-			required /> <input type="submit" value="Submit Query" />
-	</form>
+	<p>The customer has confirmed, first name: ${customer.firstName},
+		last name: ${customer.lastName}</p>
 
 </body>
 </html>

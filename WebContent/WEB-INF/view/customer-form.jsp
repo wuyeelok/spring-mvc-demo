@@ -24,7 +24,7 @@
 
 	<br>
 
-	<form:form action="processForm" modelAttribute="customer">
+	<form:form action="processForm" modelAttribute="customer" method="post">
 		<label for="firstName">First name:</label>
 		<form:input path="firstName" />
 

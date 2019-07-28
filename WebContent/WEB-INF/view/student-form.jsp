@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<form:form action="processForm" modelAttribute="student">
+	<form:form action="processForm" modelAttribute="student" method="post">
 
 		<label for="firstName">First name:</label>
 		<form:input path="firstName" required="required" />
