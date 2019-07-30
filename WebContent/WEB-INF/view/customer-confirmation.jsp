@@ -28,5 +28,9 @@
 
 	<p>Postal code: ${customer.postalCode}</p>
 
+	<br>
+
+	<p>Postal code: ${customer.courseCode}</p>
+
 </body>
 </html>
